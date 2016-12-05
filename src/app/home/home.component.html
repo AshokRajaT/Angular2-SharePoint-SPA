@@ -1,0 +1,43 @@
+<div class="app-container">
+    <div>
+        <div class="app-heading">
+            <div class="ms-font-su ms-fontColor-themePrimary" style="float:left">All Employees</div>
+            <div class="ms-font-xl ms-fontColor-orange" style="float:right;padding-top:20px">
+                <a [routerLink]="['/emp/add']" style="text-decoration:none" class="ms-fontColor-themePrimary"> <i class="ms-Icon ms-Icon--Add" aria-hidden="true"></i> &nbsp;Add New</a>
+            </div>
+            <div style="clear:both"></div> 
+        </div>
+    </div>
+    <div [ngSwitch]='loading'>
+        <div *ngSwitchCase="'init'">
+            <app-loading></app-loading>
+        </div>
+        <div *ngSwitchCase="'error'">
+            <div class="app-loading">
+                <app-notify msgText="Unable to connect the back-end services !!!"></app-notify>
+            </div>
+        </div>
+        <div *ngSwitchCase="'done'">
+            <div>
+                <div style="float:left;padding:20px" *ngFor="let item of Employees">
+                    <div class="ms-PersonaCard ">
+                        <div class="ms-PersonaCard-persona" style="background-color:white">
+                            <div class="ms-Persona">
+                                <div class="ms-Persona-imageArea">
+                                    <img class="ms-Persona-image" src="../../static/person.png">
+                                </div>
+                                <div class="ms-Persona-details">
+                                    <div class="ms-Persona-primaryText">{{ item.Title }} &nbsp; <a [routerLink]="['/emp/edit',item.Id]" class="ms-Link"><i class="ms-Icon ms-Icon--EditNote"></i> </a></div>
+                                    <div class="ms-Persona-secondaryText">{{item.Designation}}</div>
+                                    <div class="ms-Persona-secondaryText">{{item.Location}}</div>
+                                    <div class="ms-Persona-secondaryText">{{item.Email}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+</div>

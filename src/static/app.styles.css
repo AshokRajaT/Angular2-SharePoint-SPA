@@ -1,0 +1,15 @@
+.app-loading {
+    text-align: center;
+    top: 200px;
+    position: absolute;
+    display: block;
+    left: 40%
+}
+
+.app-container {
+    max-width: 900px;
+}
+
+.app-heading {
+    max-height: 60px;
+}

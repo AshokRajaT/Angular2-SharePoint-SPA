@@ -1,0 +1,52 @@
+<div class="app-container">
+    <div>
+        <div class="app-heading">
+            <div class="ms-font-su ms-fontColor-themePrimary" style="float:left">{{pageTile}} </div>
+            <div *ngIf="pageMode=='edit'" class="ms-font-xl ms-fontColor-orange" style="float:right;padding-top:20px">
+                <a href="#" (click)="deleteRecord($event);" class="ms-fontColor-orange"> <i class="ms-Icon ms-Icon--Delete" aria-hidden="true"></i></a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div *ngIf="itemAdded">
+            <app-notify msgIcon="Completed" msgType="success" msgText="{{newEmployee}} added successfully !!!"></app-notify>
+        </div>
+    </div>
+    <div [ngSwitch]='loading'>
+        <div *ngSwitchCase="'init'">
+            <app-loading></app-loading>
+        </div>
+        <div *ngSwitchCase="'error'">
+            <div class="app-loading">
+                <app-notify msgText="Unable to connect the back-end services !!!"></app-notify>
+            </div>
+        </div>
+        <div *ngSwitchCase="'done'">
+            <div style="width:500px;padding-top:10px">
+                <div class="ms-TextField  ">
+                    <label class="ms-Label">Name</label>
+                    <input class="ms-TextField-field" type="text" [(ngModel)]="Employee.Title" placeholder="">
+                </div>
+                <div class="ms-TextField  ">
+                    <label class="ms-Label">Designation</label>
+                    <input class="ms-TextField-field" type="text" [(ngModel)]="Employee.Designation" placeholder="">
+                </div>
+                <div class="ms-TextField  ">
+                    <label class="ms-Label">Location</label>
+                    <input class="ms-TextField-field" type="text" [(ngModel)]="Employee.Location" placeholder="">
+                </div>
+                <div class="ms-TextField  ">
+                    <label class="ms-Label">Email</label>
+                    <input class="ms-TextField-field" type="text" [(ngModel)]="Employee.Email" placeholder="">
+                </div>
+                <div style="padding-top:20px">
+                    <button (click)="saveChanges();" class="ms-Button ms-Button--primary">
+                        <span class="ms-Button-label">Save</span>
+                    </button> &nbsp;
+                    <button class="ms-Button" [routerLink]="['/home']">
+                        <span class="ms-Button-label">Cancel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
