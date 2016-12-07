@@ -7,9 +7,11 @@
 }
 
 .app-container {
-    max-width: 900px;
+    max-width: 775px;
+    width:760px;
 }
 
 .app-heading {
     max-height: 60px;
+    width:745px;
 }

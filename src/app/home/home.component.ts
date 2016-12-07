@@ -10,6 +10,7 @@ import * as pnp from "sp-pnp-js";
     selector: 'app-home',
     templateUrl: './home.component.html',
 })
+
 export class HomeComponent implements OnInit {
     private Employees: IEmployeeEntity[] = [];
     public loading: string = 'init';

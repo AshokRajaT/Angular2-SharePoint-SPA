@@ -45,7 +45,9 @@
 			</div>
 		</o365-app>
 		<!-- Place the compiled Js below-->
-
+		<script type="text/javascript" src="./polyfills.[hash].js"></script>
+		<script type="text/javascript" src="./vendor.[hash].js"></script>
+		<script type="text/javascript" src="./app.[hash].js"></script>
 	</div>
 	<SharePoint:VersionedPlaceHolder UIVersion="4" runat="server">
 		<SharePoint:SPRibbonButton id="btnWikiEdit" RibbonCommand="Ribbon.WikiPageTab.EditAndCheckout.SaveEdit.Menu.SaveEdit.Edit" runat="server" Text="edit" />
